@@ -15,8 +15,6 @@ export default function NotFound() {
             <p className="py-8">
                 <Link href="/">返回首页</Link>
             </p>
-
-            <p className="font-mono text-sm py-8 text-gray-500">devers-platform-web, a community for developers.</p>
         </main>
     )
 }

@@ -1,6 +1,8 @@
 'use client'
 
 import Link from "next/link";
+import Header from "@/app/header";
+import Footer from "@/app/footer";
 
 /// Error handling page
 ///
@@ -19,13 +21,12 @@ export default function GlobalError({error, reset}: {
             <title>出现了一点错误 | 开发者技术社区</title>
         </head>
         <body>
+        <Header />
         <main className="container mx-auto px-8 py-8">
             <h1 className="font-sans text-4xl font-black py-4">出现了点错误</h1>
             <p className="py-8">
                 <Link href="/">返回首页</Link>
             </p>
-
-            <p className="font-mono text-sm py-8 text-gray-500">devers-platform-web, a community for developers.</p>
 
             <div className="px-8 py-8 rounded-xl bg-gray-200/[.05]">
                 <p className="font-sans font-bold text-2xl text-gray-500">Uncaught Error Occurred</p>
@@ -42,6 +43,7 @@ export default function GlobalError({error, reset}: {
                 </div>
             </div>
         </main>
+        <Footer />
         </body>
         </html>
     )
