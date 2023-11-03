@@ -80,18 +80,16 @@ export default function Footer() {
                 </div>
                 <div className="hidden lg:flex flex-1 px-16">
                     {navigation.map((item) => (
-                        <div className="flex-1">
-                            <a key={item.name} href={item.href} className="font-semibold leading-6 text-gray-900">
+                        <div className="flex-1" key={item.name}>
+                            <a href={item.href} className="font-semibold leading-6 text-gray-900">
                                 {item.name}
                             </a>
                             <div className="py-4">
                                 {item.children.map((child) => (
-                                    <div>
-                                        <a key={child.name} href={child.href}
-                                           className={"font-semibold leading-6 text-gray-900"}>
-                                            {child.name}
-                                        </a>
-                                    </div>
+                                    <a key={child.name} href={child.href}
+                                       className={"font-semibold leading-6 text-gray-900 block"}>
+                                        {child.name}
+                                    </a>
                                 ))}
                             </div>
                         </div>
