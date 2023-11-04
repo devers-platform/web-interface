@@ -9,7 +9,7 @@ import Link from 'next/link'
 export default function NotFound() {
     return (
         <main className="container mx-auto px-8 py-8">
-            <h1 className="font-sans text-4xl font-black py-4">查无踪迹</h1>
+            <h1 className="py-4 font-sans text-4xl font-black">查无踪迹</h1>
             <p className="font-sans">飞云过尽，碧浪无迹。</p>
             <p className="font-sans">我们找不到你所要请求的资源。</p>
             <p className="py-8">
