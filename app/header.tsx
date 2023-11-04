@@ -1,0 +1,166 @@
+'use client'
+
+import {faBars, faXmark} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {Dialog} from '@headlessui/react'
+import Link from 'next/link'
+import {useState} from 'react'
+
+const navigation = [
+    {name: '文章', href: '/articles'},
+    {name: '问答', href: '/helps'},
+    {name: '课程', href: '/courses'},
+]
+export default function Header() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+    return (
+        /*
+            [HEADER SECTION]
+
+            Base header for main layouts.
+        */
+        <header
+            className="absolute inset-x-0 top-0 z-50 bg-white px-16 py-4 shadow-sm shadow-slate-200 dark:bg-slate-800 dark:shadow-slate-600 lg:py-8"
+            aria-label="header">
+            <nav
+                className="flex items-center justify-between"
+                aria-label="header-nav">
+                {/*
+                    The brand of the header section.
+
+                    Should always be shown.
+                */}
+                <div className="flex lg:flex-1">
+                    <Link
+                        href="#"
+                        className="-m-1.5 p-1.5"
+                        aria-label="header-nav-brand">
+                        <span className="font-mono text-sky-700">
+                            devers<span className="animation-twinkling">_</span>
+                        </span>
+                    </Link>
+                </div>
+                {/*
+                    A Link of a menu icon points to open the mobile size menu.
+
+                    Clicking it will trigger dialog's opening.
+                    Should only be shown on small screen size.
+                */}
+                <div
+                    className="flex lg:hidden"
+                    aria-label="header-nav-sm:menu-button">
+                    <button
+                        type="button"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                        onClick={() => setMobileMenuOpen(true)}>
+                        <span className="sr-only">Open main menu</span>
+                        <FontAwesomeIcon icon={faBars}/>
+                    </button>
+                </div>
+                {/*
+                    Section links to be shown in the header.
+
+                    Section links are generated from the [navigation] array at the top of the file.
+                    Should only be shown on large screen size.
+                */}
+                <div
+                    className="hidden lg:flex lg:gap-x-12"
+                    aria-label="header-nav-lg:menu">
+                    {navigation.map((item) => (
+                        <Link
+                            key={item.name}
+                            href={item.href}
+                            className="font-semibold leading-6 text-gray-900"
+                            aria-label="header-nav-lg:menu-sectionlink">
+                            {item.name}
+                        </Link>
+                    ))}
+                </div>
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <Link
+                        href="/user/signin"
+                        className="font-semibold leading-6 text-gray-900"
+                        aria-label="header-nav-lg:menu-loginlink">
+                        登录 <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                </div>
+            </nav>
+
+            {/*
+                The dialog below defines the mobile menu.
+
+                Mobile size menu is shown when the menu icon is clicked.
+                The [open] state is defined by the [mobileMenuOpen] variable, and can be toggled by [setMobileMenuOpen].
+                Should only be shown on small screen size.
+            */}
+            <Dialog
+                as="div"
+                className="lg:hidden"
+                open={mobileMenuOpen}
+                onClose={setMobileMenuOpen}
+                aria-label="header-nav-sm:menu">
+                <div className="fixed inset-0 z-50"/>
+                <Dialog.Panel
+                    className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <div className="flex items-center justify-between">
+                        {/*
+                            The brand of the dialog menu.
+                        */}
+                        <Link
+                            href="#"
+                            className="-m-1.5 p-1.5"
+                            aria-label="header-nav-sm:menu-brand">
+                            <span className="font-mono text-sky-700">
+                                devers
+                                <span className="animation-twinkling">_</span>
+                            </span>
+                        </Link>
+                        {/*
+                            The close button to be shown in the dialog menu.
+
+                            Clicking the close button will close the dialog menu by triggering `setMobileMenuOpen` method.
+                        */}
+                        <button
+                            type="button"
+                            className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                            onClick={() => setMobileMenuOpen(false)}
+                            aria-label="header-nav-sm:menu-closebutton">
+                            <span className="sr-only">Close menu</span>
+                            <FontAwesomeIcon icon={faXmark}/>
+                        </button>
+                    </div>
+                    <div className="mt-6 flow-root">
+                        <div className="-my-6 divide-y divide-gray-500/10">
+                            <div className="space-y-2 py-6">
+                                {navigation.map((item) => (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                        aria-label="header-nav-sm:menu-sectionlink">
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </div>
+                            {/*
+                                Relevant information of user signed in.
+
+                                Shows a login link when not signed in, points to an individual page.
+                                Shows user's avatar & name when signed in, and the link points to the user's profile page.
+                            */}
+                            <div className="py-6">
+                                <Link
+                                    href="/user/signin"
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    aria-label="header-nav-sm:menu-loginlink">
+                                    登录 <span aria-hidden="true">&rarr;</span>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </Dialog.Panel>
+            </Dialog>
+        </header>
+    )
+}
