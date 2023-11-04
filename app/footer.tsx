@@ -116,7 +116,7 @@ export default function Footer() {
                                 icon={faGithub}
                                 size="xl"
                             />
-                            <span className="inline-block px-2">
+                            <span className="hidden sm:inline-block px-2">
                                 Visit GitHub Project
                             </span>
                         </Link>
