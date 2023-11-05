@@ -48,6 +48,46 @@ class User {
         this.schoolId = schoolId;
         this.major = major;
     }
+
+    static empty() {
+        return new User(
+            '',
+            '',
+            '',
+            Role.Guest,
+            '',
+            StatusCode.Busy,
+            '',
+            new Date(),
+            null,
+            null,
+            0,
+            Avatar.default,
+            '',
+            0,
+            Major.ComputerScienceAndTechnology
+        );
+    }
+
+    static testData() {
+        return new User(
+            'IwNgGltQrJpc',
+            'test',
+            'testing@hoarfroster.space',
+            Role.Admin,
+            'testing is indeed a hard job...',
+            StatusCode.Exhausted,
+            '',
+            new Date(),
+            null,
+            null,
+            0,
+            Avatar.default,
+            "I just lovin' it!",
+            2023000000,
+            Major.ComputerScienceAndTechnology
+        );
+    }
 }
 
 enum StatusCode {
@@ -77,7 +117,7 @@ enum Role {
 }
 
 enum Avatar {
-    // Define your avatar options here
+    default = 0b00
 }
 
 enum Major {
@@ -88,3 +128,5 @@ enum Major {
     MechanicalEngineering = 0b0100,
     EconomicManagement = 0b0101,
 }
+
+export {User, StatusCode, Role, Avatar, Major};
