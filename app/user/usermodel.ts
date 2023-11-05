@@ -109,6 +109,25 @@ enum StatusCode {
     InLove = 0b1111,
 }
 
+const statusCodes = [
+    {name: "忙碌", statusCode: StatusCode.Busy},
+    {name: "离线", statusCode: StatusCode.Offline},
+    {name: "开心", statusCode: StatusCode.Happy},
+    {name: "我们能行", statusCode: StatusCode.WeGotThis},
+    {name: "疲惫", statusCode: StatusCode.Exhausted},
+    {name: "低落", statusCode: StatusCode.LowMood},
+    {name: "思考中", statusCode: StatusCode.Thinking},
+    {name: "精力充沛", statusCode: StatusCode.Energetic},
+    {name: "恍神", statusCode: StatusCode.ZoningOut},
+    {name: "求运气", statusCode: StatusCode.LuckComeToMe},
+    {name: "睡觉", statusCode: StatusCode.Sleeping},
+    {name: "努力", statusCode: StatusCode.Hardworking},
+    {name: "学习中", statusCode: StatusCode.Studying},
+    {name: "赶回家", statusCode: StatusCode.RushingHome},
+    {name: "神秘", statusCode: StatusCode.Mysterious},
+    {name: "恋爱中", statusCode: StatusCode.InLove},
+];
+
 enum Role {
     Guest = 0b00,
     User = 0b01,
@@ -116,9 +135,22 @@ enum Role {
     SuperAdmin = 0b11,
 }
 
+const roles = [
+    {name: "游客", role: Role.Guest},
+    {name: "用户", role: Role.User},
+    {name: "管理员", role: Role.Admin},
+    {name: "超级管理员", role: Role.SuperAdmin}
+];
+
 enum Avatar {
-    default = 0b00
+    default = 0b00,
+    robot = 0b01
 }
+
+const avatars = [
+    {name: "默认头像", avatar: Avatar.default},
+    {name: "机器人", avatar: Avatar.robot}
+];
 
 enum Major {
     ComputerScienceAndTechnology = 0b0000,
@@ -129,4 +161,13 @@ enum Major {
     EconomicManagement = 0b0101,
 }
 
-export {User, StatusCode, Role, Avatar, Major};
+const majors = [
+    {name: "计算机科学与技术", major: Major.ComputerScienceAndTechnology},
+    {name: "软件工程", major: Major.SoftwareDevelopment},
+    {name: "电子信息工程", major: Major.ElectronicCommunication},
+    {name: "微电子科学与工程", major: Major.Microelectronics},
+    {name: "机械工程", major: Major.MechanicalEngineering},
+    {name: "经济管理", major: Major.EconomicManagement}
+];
+
+export {User, StatusCode, Role, Avatar, Major, statusCodes, roles, avatars, majors};
