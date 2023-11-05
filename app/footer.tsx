@@ -97,7 +97,7 @@ export default function Footer() {
                     className="flex grow flex-col items-center px-16 lg:flex-initial lg:grow-0 lg:items-start"
                     aria-label="footer-brand">
                     <Link
-                        href="#"
+                        href="/"
                         className="-m-1.5 p-1.5">
                         <span className="font-mono text-2xl text-sky-700">
                             devers<span className="animation-twinkling">_</span>

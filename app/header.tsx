@@ -33,7 +33,7 @@ export default function Header() {
                 */}
                 <div className="flex lg:flex-1">
                     <Link
-                        href="#"
+                        href="/"
                         className="-m-1.5 p-1.5"
                         aria-label="header-nav-brand">
                         <span className="font-mono text-sky-700">
@@ -108,7 +108,7 @@ export default function Header() {
                             The brand of the dialog menu.
                         */}
                         <Link
-                            href="#"
+                            href="/"
                             className="-m-1.5 p-1.5"
                             aria-label="header-nav-sm:menu-brand">
                             <span className="font-mono text-sky-700">
