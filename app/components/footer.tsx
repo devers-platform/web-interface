@@ -1,5 +1,6 @@
 'use client'
 
+import Logo from '@/app/components/logo'
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
@@ -96,15 +97,10 @@ export default function Footer() {
                 <div
                     className="flex grow flex-col items-center px-16 lg:flex-initial lg:grow-0 lg:items-start"
                     aria-label="footer-brand">
-                    <Link
-                        href="/"
-                        className="-m-1.5 p-1.5">
-                        <span className="font-mono text-2xl text-sky-700">
-                            devers<span className="animation-twinkling">_</span>
-                        </span>
-                    </Link>
+                    <Logo size={'2xl'} />
+
                     <p
-                        className="py-2 text-gray-800 dark:text-gray-200"
+                        className="py-2"
                         aria-label="footer-brand-desc">
                         成为在编程路上工大er的最好伴侣。
                     </p>
@@ -114,9 +110,9 @@ export default function Footer() {
                         <Link href="https://github.com/devers-platform">
                             <FontAwesomeIcon
                                 icon={faGithub}
-                                size="xl"
+                                className="h-5 w-5 align-middle"
                             />
-                            <span className="hidden sm:inline-block px-2">
+                            <span className="hidden px-2 sm:inline-block">
                                 Visit GitHub Project
                             </span>
                         </Link>
@@ -139,7 +135,7 @@ export default function Footer() {
                             aria-label="footer-link-subsection">
                             <Link
                                 href={item.href}
-                                className="font-semibold leading-6 text-gray-900">
+                                className="font-semibold leading-6">
                                 {item.name}
                             </Link>
                             <div className="py-4">
@@ -148,7 +144,7 @@ export default function Footer() {
                                         key={child.name}
                                         href={child.href}
                                         className={
-                                            'block font-semibold leading-6 text-gray-900'
+                                            'block font-semibold leading-6'
                                         }>
                                         {child.name}
                                     </Link>
@@ -159,7 +155,7 @@ export default function Footer() {
                 </div>
             </nav>
             <div
-                className="text-center text-xs text-gray-500"
+                className="text-center text-xs text-gray-600 dark:text-gray-400"
                 aria-label="footer-copyright">
                 Powered by devers-platform team. Portions of this content are
                 &copy; 2023 by individual contributors on this site.
