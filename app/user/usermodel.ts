@@ -144,12 +144,12 @@ const userRoles = [
 
 enum UserAvatar {
     default = 0b00,
-    robot = 0b01
+    christmas = 0b01
 }
 
 const userAvatars = [
-    {name: "默认头像", avatar: UserAvatar.default},
-    {name: "机器人", avatar: UserAvatar.robot}
+    {name: "默认头像", avatar: UserAvatar.default, link: "/images/default-avatar.png"},
+    {name: "圣诞装扮", avatar: UserAvatar.christmas, link: "/images/christmas-avatar.png"}
 ];
 
 enum UserMajor {
