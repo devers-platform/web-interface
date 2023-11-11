@@ -148,8 +148,16 @@ enum Avatar {
 }
 
 const avatars = [
-    {name: "默认头像", avatar: Avatar.default},
-    {name: "机器人", avatar: Avatar.robot}
+    {
+        name: "默认头像",
+        avatar: Avatar.default,
+        link: ""
+    },
+    {
+        name: "机器人",
+        avatar: Avatar.robot,
+        link: ""
+    }
 ];
 
 enum Major {
