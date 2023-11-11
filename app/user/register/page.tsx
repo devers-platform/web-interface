@@ -1,7 +1,7 @@
 'use client'
 
 import Logo from '@/app/components/logo'
-import {majors} from '@/app/user/usermodel'
+import {userMajors} from '@/app/user/usermodel'
 import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck'
 import {faChevronDown} from '@fortawesome/free-solid-svg-icons/faChevronDown'
 import {faChevronUp} from '@fortawesome/free-solid-svg-icons/faChevronUp'
@@ -12,7 +12,7 @@ import Link from 'next/link'
 import {Fragment, useState} from 'react'
 
 export default function Register() {
-    const [selectedMajor, setSelectedMajor] = useState(majors[0])
+    const [selectedMajor, setSelectedMajor] = useState(userMajors[0])
 
     return (
         /*
@@ -145,7 +145,7 @@ export default function Register() {
                                             leaveFrom="opacity-100"
                                             leaveTo="opacity-0">
                                             <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-slate-900 sm:text-sm">
-                                                {majors.map((major) => (
+                                                {userMajors.map((major) => (
                                                     <Listbox.Option
                                                         key={major.major}
                                                         className={({active}) =>

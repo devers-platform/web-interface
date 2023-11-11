@@ -2,18 +2,18 @@ class User {
     id: string;
     name: string;
     email: string;
-    role: Role;
+    role: UserRole;
     status: string;
-    statusCode: StatusCode;
+    statusCode: UserStatus;
     password: string;
     createdAt: Date;
     updatedAt: Date | null;
     deletedAt: Date | null;
     points: number;
-    avatar: Avatar;
+    avatar: UserAvatar;
     bio: string;
     schoolId: number;
-    major: Major;
+    major: UserMajor;
 
     constructor(
         id: string,
@@ -54,18 +54,18 @@ class User {
             '',
             '',
             '',
-            Role.Guest,
+            UserRole.Guest,
             '',
-            StatusCode.Busy,
+            UserStatus.Busy,
             '',
             new Date(),
             null,
             null,
             0,
-            Avatar.default,
+            UserAvatar.default,
             '',
             0,
-            Major.ComputerScienceAndTechnology
+            UserMajor.ComputerScienceAndTechnology
         );
     }
 
@@ -74,23 +74,23 @@ class User {
             'IwNgGltQrJpc',
             'test',
             'testing@hoarfroster.space',
-            Role.Admin,
+            UserRole.Admin,
             'testing is indeed a hard job...',
-            StatusCode.Exhausted,
+            UserStatus.Exhausted,
             '',
             new Date(),
             null,
             null,
             0,
-            Avatar.default,
+            UserAvatar.default,
             "I just lovin' it!",
             2023000000,
-            Major.ComputerScienceAndTechnology
+            UserMajor.ComputerScienceAndTechnology
         );
     }
 }
 
-enum StatusCode {
+enum UserStatus {
     Busy = 0b0000,
     Offline = 0b0001,
     Happy = 0b0010,
@@ -109,58 +109,50 @@ enum StatusCode {
     InLove = 0b1111,
 }
 
-const statusCodes = [
-    {name: "忙碌", statusCode: StatusCode.Busy},
-    {name: "离线", statusCode: StatusCode.Offline},
-    {name: "开心", statusCode: StatusCode.Happy},
-    {name: "我们能行", statusCode: StatusCode.WeGotThis},
-    {name: "疲惫", statusCode: StatusCode.Exhausted},
-    {name: "低落", statusCode: StatusCode.LowMood},
-    {name: "思考中", statusCode: StatusCode.Thinking},
-    {name: "精力充沛", statusCode: StatusCode.Energetic},
-    {name: "恍神", statusCode: StatusCode.ZoningOut},
-    {name: "求运气", statusCode: StatusCode.LuckComeToMe},
-    {name: "睡觉", statusCode: StatusCode.Sleeping},
-    {name: "努力", statusCode: StatusCode.Hardworking},
-    {name: "学习中", statusCode: StatusCode.Studying},
-    {name: "赶回家", statusCode: StatusCode.RushingHome},
-    {name: "神秘", statusCode: StatusCode.Mysterious},
-    {name: "恋爱中", statusCode: StatusCode.InLove},
+const userStatuses = [
+    {name: "忙碌", statusCode: UserStatus.Busy},
+    {name: "离线", statusCode: UserStatus.Offline},
+    {name: "开心", statusCode: UserStatus.Happy},
+    {name: "我们能行", statusCode: UserStatus.WeGotThis},
+    {name: "疲惫", statusCode: UserStatus.Exhausted},
+    {name: "低落", statusCode: UserStatus.LowMood},
+    {name: "思考中", statusCode: UserStatus.Thinking},
+    {name: "精力充沛", statusCode: UserStatus.Energetic},
+    {name: "恍神", statusCode: UserStatus.ZoningOut},
+    {name: "求运气", statusCode: UserStatus.LuckComeToMe},
+    {name: "睡觉", statusCode: UserStatus.Sleeping},
+    {name: "努力", statusCode: UserStatus.Hardworking},
+    {name: "学习中", statusCode: UserStatus.Studying},
+    {name: "赶回家", statusCode: UserStatus.RushingHome},
+    {name: "神秘", statusCode: UserStatus.Mysterious},
+    {name: "恋爱中", statusCode: UserStatus.InLove},
 ];
 
-enum Role {
+enum UserRole {
     Guest = 0b00,
     User = 0b01,
     Admin = 0b10,
     SuperAdmin = 0b11,
 }
 
-const roles = [
-    {name: "游客", role: Role.Guest},
-    {name: "用户", role: Role.User},
-    {name: "管理员", role: Role.Admin},
-    {name: "超级管理员", role: Role.SuperAdmin}
+const userRoles = [
+    {name: "游客", role: UserRole.Guest},
+    {name: "用户", role: UserRole.User},
+    {name: "管理员", role: UserRole.Admin},
+    {name: "超级管理员", role: UserRole.SuperAdmin}
 ];
 
-enum Avatar {
+enum UserAvatar {
     default = 0b00,
     robot = 0b01
 }
 
-const avatars = [
-    {
-        name: "默认头像",
-        avatar: Avatar.default,
-        link: ""
-    },
-    {
-        name: "机器人",
-        avatar: Avatar.robot,
-        link: ""
-    }
+const userAvatars = [
+    {name: "默认头像", avatar: UserAvatar.default},
+    {name: "机器人", avatar: UserAvatar.robot}
 ];
 
-enum Major {
+enum UserMajor {
     ComputerScienceAndTechnology = 0b0000,
     SoftwareDevelopment = 0b0001,
     ElectronicCommunication = 0b0010,
@@ -169,13 +161,13 @@ enum Major {
     EconomicManagement = 0b0101,
 }
 
-const majors = [
-    {name: "计算机科学与技术", major: Major.ComputerScienceAndTechnology},
-    {name: "软件工程", major: Major.SoftwareDevelopment},
-    {name: "电子信息工程", major: Major.ElectronicCommunication},
-    {name: "微电子科学与工程", major: Major.Microelectronics},
-    {name: "机械工程", major: Major.MechanicalEngineering},
-    {name: "经济管理", major: Major.EconomicManagement}
+const userMajors = [
+    {name: "计算机科学与技术", major: UserMajor.ComputerScienceAndTechnology},
+    {name: "软件工程", major: UserMajor.SoftwareDevelopment},
+    {name: "电子信息工程", major: UserMajor.ElectronicCommunication},
+    {name: "微电子科学与工程", major: UserMajor.Microelectronics},
+    {name: "机械工程", major: UserMajor.MechanicalEngineering},
+    {name: "经济管理", major: UserMajor.EconomicManagement}
 ];
 
-export {User, StatusCode, Role, Avatar, Major, statusCodes, roles, avatars, majors};
+export {User, UserStatus, userStatuses, UserRole, userRoles, UserAvatar, userAvatars, UserMajor, userMajors};
